@@ -7,6 +7,7 @@ package modelviewpresenter;
 
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -38,7 +39,7 @@ public class CzynnikView extends VBox{
     
     public CzynnikView(ObservableList czynniki){
         this.czynniki = czynniki;
-        loadTable();
+        setTable(this.czynniki);
         setAddBox();
         
     }
@@ -49,19 +50,19 @@ public class CzynnikView extends VBox{
         
         
         addNazwa.setPromptText("Nazwa");
-        addNazwa.setMaxWidth(nazwaCol.getPrefWidth());
+       // addNazwa.setMaxWidth(nazwaCol.getPrefWidth());
         
         addOzn.setPromptText("oznaczenie");
-        addOzn.setMaxWidth(oznCol.getPrefWidth());
+      //  addOzn.setMaxWidth(oznCol.getPrefWidth());
         
         addWmin.setPromptText("wart Min");
-        addWmin.setMaxWidth(wminCol.getPrefWidth());
+      //  addWmin.setMaxWidth(wminCol.getPrefWidth());
         
         addWmax.setPromptText("Wart max");
-        addWmax.setMaxWidth(wmaxCol.getPrefWidth());
-        
+     //   addWmax.setMaxWidth(wmaxCol.getPrefWidth());
+        ...
         addJedn.setPromptText("jednostka");
-        addJedn.setMaxWidth(jednCol.getPrefWidth());
+      //  addJedn.setMaxWidth(jednCol.getPrefWidth());
         
         
         
@@ -71,7 +72,8 @@ public class CzynnikView extends VBox{
         // BUTTON SET ON ACTIOn
         /*
         
-        
+        nie tu
+        w presetner
         
         
         */
@@ -82,6 +84,17 @@ public class CzynnikView extends VBox{
         this.getChildren().add(addHBox);
         
 
+    }
+
+    private void setTable(ObservableList dane) {
+        TableView czynnikiTable = new TableView(dane);
+        czynnikiTable.getColumns().addAll(CzynnikTableUtil.getIdColumn(),
+                                          CzynnikTableUtil.getNazwaColumn(),
+                                          CzynnikTableUtil.getWartoscColumn(),
+                                          CzynnikTableUtil.getJednostkaColumn());
+        
+        this.getChildren().add(czynnikiTable);
+        
     }
     
     

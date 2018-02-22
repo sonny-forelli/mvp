@@ -5,10 +5,19 @@
  */
 package modelviewpresenter;
 
+import javafx.collections.ObservableList;
+
 /**
  *
  * @author lg
  */
 public class CzynnikPresenter {
+    private final ObservableList<Czynnik> czynniki;
+    private final CzynnikView czynnikView;
+    
+    public CzynnikPresenter(ObservableList czynniki, CzynnikView czynnikView){
+        this.czynniki=czynniki;
+        this.czynnikView=czynnikView;
+    }
     
 }
