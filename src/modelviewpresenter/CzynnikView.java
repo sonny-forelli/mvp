@@ -24,6 +24,8 @@ public class CzynnikView extends VBox{
     //
     
     //d
+    
+    
     final TextField addNazwa = new TextField();
     final TextField addOzn = new TextField();
     final TextField addWmin = new TextField();
@@ -34,6 +36,13 @@ public class CzynnikView extends VBox{
     
     final Button addButton = new Button("Dodaj");
         
+    //errors
+    
+    final VBox nazwaVBox = new VBox(addNazwa);
+    final VBox oznVBox = new VBox(addOzn);
+    final VBox wminVBox = new VBox(addWmin);
+    final VBox wmaxVBox = new VBox(addWmax);
+    final VBox jednVBox = new VBox(addJedn);
     
     
     
@@ -60,7 +69,7 @@ public class CzynnikView extends VBox{
         
         addWmax.setPromptText("Wart max");
      //   addWmax.setMaxWidth(wmaxCol.getPrefWidth());
-        ...
+       
         addJedn.setPromptText("jednostka");
       //  addJedn.setMaxWidth(jednCol.getPrefWidth());
         
@@ -79,7 +88,7 @@ public class CzynnikView extends VBox{
         */
         
         
-        addHBox.getChildren().addAll(addNazwa,addOzn,addWmin,addWmax,addJedn,addButton);
+        addHBox.getChildren().addAll(nazwaVBox,oznVBox,wminVBox,wmaxVBox,jednVBox);
         
         this.getChildren().add(addHBox);
         
