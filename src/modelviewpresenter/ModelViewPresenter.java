@@ -6,6 +6,8 @@
 package modelviewpresenter;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
@@ -22,12 +24,14 @@ public class ModelViewPresenter extends Application {
     
     @Override
     public void start(Stage primaryStage) {
+       ObservableList<Czynnik> czynniki = FXCollections.observableArrayList();
+       CzynnikView czynnikView = new CzynnikView(czynniki);
+       CzynnikPresenter czynnikPresenter = new CzynnikPresenter(czynniki,czynnikView);
+       
+        Group root = new Group();
        
         
-        Group root = new Group();
-        root.getChildren().add();
-        
-        Scene scene = new Scene(root, 300, 250);
+        Scene scene = new Scene(czynnikView);
         
         primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);

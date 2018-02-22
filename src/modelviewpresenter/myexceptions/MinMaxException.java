@@ -9,6 +9,7 @@ package modelviewpresenter.myexceptions;
  *
  * @author lg
  */
-public class MinMaxException {
+public class MinMaxException extends Throwable{
     
+    //lel
 }

@@ -66,6 +66,10 @@ public class CzynnikView extends VBox{
         
     }
 
+    CzynnikView() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     private void setAddBox() {
         
         HBox addHBox = new HBox();
@@ -101,7 +105,7 @@ public class CzynnikView extends VBox{
         */
         
         
-        addHBox.getChildren().addAll(nazwaVBox,oznVBox,wminVBox,wmaxVBox,jednVBox);
+        addHBox.getChildren().addAll(nazwaVBox,oznVBox,wminVBox,wmaxVBox,jednVBox,addButton);
         
         
         
