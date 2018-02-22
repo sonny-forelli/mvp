@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import modelviewpresenter.myexceptions.EmptyFieldException;
+import modelviewpresenter.myexceptions.MinMaxException;
 
 /**
  *
@@ -38,7 +39,7 @@ public class CzynnikPresenter {
     private void addCzynnik() {
         try{
                     checkFields();
-                    clearErrors();
+                    czynnikView.clearErrors();
                     czynniki.add(new Czynnik(
                         //czynniki.size()+1,
                         czynnikView.addNazwa.getText(),
@@ -65,18 +66,19 @@ public class CzynnikPresenter {
                   
                   
                   
+                }catch(MinMaxException e){
+                    Label label = new Label("wartość minimalna większa od maksymalnej");
+                    czynnikView.wminVBox.getChildren().add(label);
                 }catch(Throwable e){
                     
-                    alert.setContentText("asdfdsf");
                     
-                    alert.showAndWait();
                     System.out.println(e);
                     
                 }
         
     }
 
-    private void checkFields() throws EmptyFieldException {
+    private void checkFields() throws EmptyFieldException, MinMaxException {
        
         /*
         for(TextField textField : czynnikView.addTextFieldList){
@@ -104,7 +106,13 @@ public class CzynnikPresenter {
         }
         
         
-        
+        if(Float.parseFloat(czynnikView.addWmin.getText())
+                >
+                Float.parseFloat(czynnikView.addWmax.getText())){
+            
+            throw new MinMaxException();
+            
+        }
         
         
        
@@ -112,8 +120,6 @@ public class CzynnikPresenter {
         
     }
 
-    private void clearErrors() {
-        
-    }
+    
     
 }
