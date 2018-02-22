@@ -128,7 +128,7 @@ public class CzynnikView extends VBox{
     void clearErrors() {
         for(VBox vbox : addVBoxList){
             if(vbox.getChildren().size()>1)vbox.getChildren().remove(1);
-            else return;
+            
         }
     }
 

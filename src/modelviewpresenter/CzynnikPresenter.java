@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
+import modelviewpresenter.myexceptions.BadFormatException;
 import modelviewpresenter.myexceptions.EmptyFieldException;
 import modelviewpresenter.myexceptions.MinMaxException;
 
@@ -38,6 +39,7 @@ public class CzynnikPresenter {
 
     private void addCzynnik() {
         try{
+                    czynnikView.clearErrors();
                     checkFields();
                     czynnikView.clearErrors();
                     czynniki.add(new Czynnik(
@@ -68,7 +70,12 @@ public class CzynnikPresenter {
                   
                 }catch(MinMaxException e){
                     Label label = new Label("wartość minimalna większa od maksymalnej");
+                    label.setTextFill(Color.RED);
                     czynnikView.wminVBox.getChildren().add(label);
+                }catch(BadFormatException e){
+                    Label label = new Label("zły format");
+                    label.setTextFill(Color.RED);
+                    e.getCauseField().getChildren().add(label);
                 }catch(Throwable e){
                     
                     
@@ -78,7 +85,8 @@ public class CzynnikPresenter {
         
     }
 
-    private void checkFields() throws EmptyFieldException, MinMaxException {
+    private void checkFields() throws EmptyFieldException, MinMaxException,
+                                    BadFormatException{
        
         /*
         for(TextField textField : czynnikView.addTextFieldList){
@@ -98,21 +106,38 @@ public class CzynnikPresenter {
         if(czynnikView.addWmin.getLength()<1){
             throw new EmptyFieldException(czynnikView.wminVBox);
         }
+            try{
+                Float.parseFloat(czynnikView.addWmin.getText());
+               
+            }catch(Throwable e){
+                throw new BadFormatException(czynnikView.wminVBox);
+            }
+        
         if(czynnikView.addWmax.getLength()<1){
             throw new EmptyFieldException(czynnikView.wmaxVBox);
         }
-        if(czynnikView.addJedn.getLength()<1){
-            throw new EmptyFieldException(czynnikView.jednVBox);
-        }
+            try{
+                Float.parseFloat(czynnikView.addWmax.getText());
+               
+            }catch(Throwable e){
+                throw new BadFormatException(czynnikView.wmaxVBox);
+            }
         
-        
-        if(Float.parseFloat(czynnikView.addWmin.getText())
+         if(Float.parseFloat(czynnikView.addWmin.getText())
                 >
                 Float.parseFloat(czynnikView.addWmax.getText())){
             
             throw new MinMaxException();
             
         }
+        
+        
+        if(czynnikView.addJedn.getLength()<1){
+            throw new EmptyFieldException(czynnikView.jednVBox);
+        }
+        
+        
+       
         
         
        
