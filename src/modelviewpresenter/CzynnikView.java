@@ -5,8 +5,14 @@
  */
 package modelviewpresenter;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import java.util.List;
 import javafx.collections.ObservableList;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
@@ -32,17 +38,22 @@ public class CzynnikView extends VBox{
     final TextField addWmax = new TextField();
     final TextField addJedn = new TextField();
     
+    final List<TextField> addTextFieldList = Arrays.asList(addNazwa,addOzn,
+                                                    addWmin,addWmax,addJedn);
     
     
     final Button addButton = new Button("Dodaj");
         
     //errors
     
-    final VBox nazwaVBox = new VBox(addNazwa);
-    final VBox oznVBox = new VBox(addOzn);
-    final VBox wminVBox = new VBox(addWmin);
-    final VBox wmaxVBox = new VBox(addWmax);
-    final VBox jednVBox = new VBox(addJedn);
+     VBox nazwaVBox = new VBox(addNazwa);
+     VBox oznVBox = new VBox(addOzn);
+     VBox wminVBox = new VBox(addWmin);
+     VBox wmaxVBox = new VBox(addWmax);
+     VBox jednVBox = new VBox(addJedn);
+     
+     final List<VBox> addVBoxList = Arrays.asList(nazwaVBox,oznVBox,
+                                                    wminVBox,wmaxVBox,jednVBox);
     
     
     
@@ -50,6 +61,8 @@ public class CzynnikView extends VBox{
         this.czynniki = czynniki;
         setTable(this.czynniki);
         setAddBox();
+        
+        
         
     }
 
@@ -90,6 +103,8 @@ public class CzynnikView extends VBox{
         
         addHBox.getChildren().addAll(nazwaVBox,oznVBox,wminVBox,wmaxVBox,jednVBox);
         
+        
+        
         this.getChildren().add(addHBox);
         
 
@@ -105,6 +120,8 @@ public class CzynnikView extends VBox{
         this.getChildren().add(czynnikiTable);
         
     }
+
+    
     
     
     

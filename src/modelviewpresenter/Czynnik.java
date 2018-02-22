@@ -44,6 +44,10 @@ public class Czynnik {
     public Czynnik(String naz, String ozn,
                     double wmin, double wmax, String jedn){
         
+        
+        
+        
+        
         this.nazwa.set(naz);
         this.oznaczenie.set(ozn);
         this.wartoscMin.set(wmin);
