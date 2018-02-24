@@ -5,6 +5,7 @@
  */
 package modelviewpresenter;
 
+import modelviewpresenter.model.Czynnik;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
