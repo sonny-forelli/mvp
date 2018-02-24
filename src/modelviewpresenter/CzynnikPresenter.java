@@ -40,7 +40,7 @@ public class CzynnikPresenter {
     private void addCzynnik() {
         try{
                     czynnikView.clearErrors();
-                    checkFields();
+                    checkFields(); ////////THROWS EXCEPTIONS
                     czynnikView.clearErrors();
                     czynniki.add(new Czynnik(
                         //czynniki.size()+1,

@@ -10,6 +10,7 @@ import java.util.Arrays;
 
 import java.util.List;
 import javafx.collections.ObservableList;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -17,6 +18,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 /**
  *
@@ -26,6 +28,8 @@ public class CzynnikView extends VBox{
     
     private final ObservableList<Czynnik> czynniki;
     
+    
+    private final Label labelDaneWejsciowe = new Label("wejściowe");
     
     //
     
@@ -59,6 +63,7 @@ public class CzynnikView extends VBox{
     
     public CzynnikView(ObservableList czynniki){
         this.czynniki = czynniki;
+        setLabel();
         setTable(this.czynniki);
         setAddBox();
         
@@ -123,6 +128,11 @@ public class CzynnikView extends VBox{
         
         this.getChildren().add(czynnikiTable);
         
+    }
+    private void setLabel(){
+        labelDaneWejsciowe.setTextFill(Color.BLUE);
+        labelDaneWejsciowe.setAlignment(Pos.CENTER);
+        this.getChildren().add(labelDaneWejsciowe);
     }
 
     void clearErrors() {
