@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modelviewpresenter.model;
+package modelviewpresenter;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import javafx.beans.property.DoubleProperty;

@@ -5,7 +5,7 @@
  */
 package modelviewpresenter;
 
-import modelviewpresenter.model.Czynnik;
+
 import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.ObservableList;

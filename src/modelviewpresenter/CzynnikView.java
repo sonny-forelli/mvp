@@ -126,6 +126,8 @@ public class CzynnikView extends VBox{
                                           CzynnikTableUtil.getWartoscColumn(),
                                           CzynnikTableUtil.getJednostkaColumn());
         
+        
+        
         this.getChildren().add(czynnikiTable);
         
     }
