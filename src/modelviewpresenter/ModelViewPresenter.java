@@ -30,8 +30,13 @@ public class ModelViewPresenter extends Application {
        
         Group root = new Group();
        
+        Button checkButton = new Button("CHECK");
+        checkButton.setOnAction(e -> checkButtonClick(czynniki.size()));
         
-        Scene scene = new Scene(czynnikView);
+        
+        root.getChildren().add(czynnikView);
+        root.getChildren().add(checkButton);
+        Scene scene = new Scene(root);
         
         primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);
@@ -43,6 +48,10 @@ public class ModelViewPresenter extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+    }
+
+    private void checkButtonClick(int size) {
+        System.out.println(size);
     }
     
 }
