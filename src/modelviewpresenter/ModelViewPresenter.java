@@ -14,6 +14,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
@@ -28,14 +29,20 @@ public class ModelViewPresenter extends Application {
        CzynnikView czynnikView = new CzynnikView(czynniki);
        CzynnikPresenter czynnikPresenter = new CzynnikPresenter(czynniki,czynnikView);
        
+       
+       CzynnikWynikView czynnikWynikView = new CzynnikWynikView(new CzynnikWynik("sd","sdffds","2"));
+       
         Group root = new Group();
        
         Button checkButton = new Button("CHECK");
         checkButton.setOnAction(e -> checkButtonClick(czynniki.size()));
         
+        checkButton.setDisable(false);
         
-        root.getChildren().add(czynnikView);
-        root.getChildren().add(checkButton);
+        VBox myViews = new VBox();
+        
+        myViews.getChildren().addAll(checkButton,czynnikView,czynnikWynikView);
+        root.getChildren().add(myViews);
         Scene scene = new Scene(root);
         
         primaryStage.setTitle("Hello World!");

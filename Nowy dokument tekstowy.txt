@@ -1,4 +1,7 @@
 
 ->
+czynnikWynik
+czynnikKod
+
 usuwanie czynników
 plany
