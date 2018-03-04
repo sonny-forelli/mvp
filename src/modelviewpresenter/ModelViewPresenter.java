@@ -25,12 +25,16 @@ public class ModelViewPresenter extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-       ObservableList<Czynnik> czynniki = FXCollections.observableArrayList();
+       ObservableList<Czynnik> czynniki = FXCollections.observableArrayList();      
        CzynnikView czynnikView = new CzynnikView(czynniki);
-       CzynnikPresenter czynnikPresenter = new CzynnikPresenter(czynniki,czynnikView);
+       
+       CzynnikWynik czynnikWynik = new CzynnikWynik("dsaf","sdfadsf","sdfsd");
+       CzynnikWynikView czynnikWynikView = new CzynnikWynikView(czynnikWynik);
+       
+       CzynnikPresenter czynnikPresenter = new CzynnikPresenter(czynniki,czynnikView,czynnikWynik,czynnikWynikView);
        
        
-       CzynnikWynikView czynnikWynikView = new CzynnikWynikView(new CzynnikWynik("sd","sdffds","2"));
+      CzynnikWartosciView cwView = new CzynnikWartosciView(czynniki);
        
         Group root = new Group();
        
@@ -41,7 +45,7 @@ public class ModelViewPresenter extends Application {
         
         VBox myViews = new VBox();
         
-        myViews.getChildren().addAll(checkButton,czynnikView,czynnikWynikView);
+        myViews.getChildren().addAll(checkButton,czynnikView,czynnikWynikView,cwView);
         root.getChildren().add(myViews);
         Scene scene = new Scene(root);
         

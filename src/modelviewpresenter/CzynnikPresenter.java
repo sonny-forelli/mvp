@@ -8,8 +8,10 @@ package modelviewpresenter;
 
 import java.util.ArrayList;
 import java.util.List;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import modelviewpresenter.myexceptions.BadFormatException;
@@ -24,19 +26,25 @@ public class CzynnikPresenter {
     private final ObservableList<Czynnik> czynniki;
     private final CzynnikView czynnikView;
     
+    private final CzynnikWynik czynnikWynikowy;
+    private final CzynnikWynikView czynnikWynikView;
     
     
-    public CzynnikPresenter(ObservableList czynniki, CzynnikView czynnikView){
+    
+    public CzynnikPresenter(ObservableList czynniki, CzynnikView czynnikView, CzynnikWynik czynnikWynik, CzynnikWynikView czynnikWynikView){
         this.czynniki=czynniki;
         this.czynnikView=czynnikView;
+        this.czynnikWynikowy = czynnikWynik;
+        this.czynnikWynikView = czynnikWynikView;
         
-        
-        attachEvents();
+       attachEvents();
     }
 
     private void attachEvents() {
         
         czynnikView.addButton.setOnAction(e -> addCzynnik());
+        czynnikWynikView.zapiszButton.setOnAction(e -> saveCzynnikWynik());
+        czynnikWynikView.wyczyscButton.setOnAction(e -> wyczyscButtonClick());
         
     }
 
@@ -146,6 +154,18 @@ public class CzynnikPresenter {
        
         
         
+    }
+
+    private void saveCzynnikWynik() {
+        czynnikWynikowy.setNazwa(czynnikWynikView.nazwaTextField.getText());
+        czynnikWynikowy.setOznaczenie(czynnikWynikView.oznaczenieTextField.getText());
+        czynnikWynikowy.setJednostka(czynnikWynikView.jednostkaTextField.getText());
+    }
+
+    private void wyczyscButtonClick() {
+        czynnikWynikView.nazwaTextField.clear();
+        czynnikWynikView.oznaczenieTextField.clear();
+        czynnikWynikView.jednostkaTextField.clear();
     }
 
     

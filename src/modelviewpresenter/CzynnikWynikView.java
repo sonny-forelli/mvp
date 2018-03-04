@@ -15,6 +15,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.Effect;
+import javafx.scene.layout.Border;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -32,18 +34,22 @@ public class CzynnikWynikView extends VBox{
     private final Label oznaczenieLabel = new Label("Oznaczenie");
     private final Label jednostkaLabel = new Label("Jednostka");
     
-    private final TextField nazwaTextField = new TextField();
-    private final TextField oznaczenieTextField = new TextField();
-    private final TextField jednostkaTextField = new TextField();
+    final TextField nazwaTextField = new TextField();
+    final TextField oznaczenieTextField = new TextField();
+    final TextField jednostkaTextField = new TextField();
     
-    private final Button zapiszButton = new Button("Zapisz");
-    private final Button wyczyscButton = new Button("Wyczyść");
+    final Button zapiszButton = new Button("Zapisz");
+    final Button wyczyscButton = new Button("Wyczyść");
+    
+    final Label nazwaFld = new Label();
+    final Label oznaczenieFld = new Label();
+    final Label jednostkaFld = new Label();
     
     private final HBox czynnikWynikowyHBox = new HBox(czynnikWynikowyLabel);
     
-    private final VBox nazwaVBox = new VBox(nazwaLabel,nazwaTextField);
-    private final VBox oznaczenieVBox = new VBox(oznaczenieLabel,oznaczenieTextField);
-    private final VBox jednostkaVBox = new VBox(jednostkaLabel,jednostkaTextField);
+    private final VBox nazwaVBox = new VBox(nazwaLabel,nazwaTextField, nazwaFld);
+    private final VBox oznaczenieVBox = new VBox(oznaczenieLabel,oznaczenieTextField, oznaczenieFld);
+    private final VBox jednostkaVBox = new VBox(jednostkaLabel,jednostkaTextField,jednostkaFld);
     
     private final HBox addHBox = new HBox(zapiszButton,wyczyscButton);
     
@@ -62,7 +68,13 @@ public class CzynnikWynikView extends VBox{
         setLabel();
         setLabels();
         setTextFields();
-        addHBox.alignmentProperty().set(Pos.BOTTOM_CENTER);
+        addHBox.alignmentProperty().set(Pos.CENTER);
+        
+        bindFieldsToModel();
+        
+        
+        ListView listView = new ListView();
+        
         
         
         this.getChildren().add(czynnikWynikHBox);
@@ -84,6 +96,12 @@ public class CzynnikWynikView extends VBox{
     private void setTextFields() {
         czynnikWynikHBox.setAlignment(Pos.CENTER);
         
+    }
+
+    private void bindFieldsToModel() {
+        nazwaFld.textProperty().bind(czynnikWynik.nazwaProperty());
+        oznaczenieFld.textProperty().bind(czynnikWynik.oznaczenieProperty());
+        jednostkaFld.textProperty().bind(czynnikWynik.jednostkaProperty());
     }
 
     
