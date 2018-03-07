@@ -12,6 +12,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Group;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.util.Callback;
 
@@ -20,30 +21,59 @@ import javafx.util.Callback;
  * @author lg
  */
 public class CzynnikWartosciTableUtil {
-    public final static ObservableList<String> wiersze = 
-            FXCollections.observableArrayList("a","b","c","d");
+    
+    ObservableList<String> wartosci;
             
     public TableView<String> getTable(ObservableList<Czynnik> czynniki){
-        TableView tabela = new TableView(wiersze);
-        tabela.getColumns().addAll(loadColumns(czynniki));
+        ObservableList<String> pC = FXCollections.observableArrayList();
+        
         
         return tabela;
     }
     public void asd(){
         
     }
-
+// 4 HORIZONTAL LISTVIEWS
+   ////////
+    
+    
+    
+    
+    
+    
+    
+    ///////
+    ///
+    
     private List<TableColumn> loadColumns(ObservableList<Czynnik> czynniki) {
         List<TableColumn> kolumny = new ArrayList();
         
+        for(Czynnik c : czynniki){
+    //       List<String>  = new ArrayList();
+           
+           TableColumn col = new TableColumn(c.getNazwa());
+        /*   
+           col.setCellValueFactory(new Callback<CellDataFeatures<rzeczy, String>, ObservableValue<String>>() {
+ 
+     public ObservableValue<String> call(CellDataFeatures<Person, String> p) {
+          // p.getValue() returns the Person instance for a particular TableView row
+          return p.getValue().firstNameProperty();
+      }
+   });
+           */
+        }
+        
        
             
-        kolumny.add(tc);
+    //    kolumny.add(tc);
         
         
         return kolumny;
     }
     
+    
+    
+  /*
     private class Row {
         List<String> cellsInRow = new ArrayList();
         
@@ -85,6 +115,6 @@ public class CzynnikWartosciTableUtil {
         
         
     
-}
+}*/
     
 }
