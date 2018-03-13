@@ -23,7 +23,7 @@ public class CzynnikWartosciView extends VBox{
     private final Label wartosciLabel = new Label("wartości centralne i poziomy");
     
     
-    public CzynnikWartosciView(ObservableList<Czynnik> czynniki,String label){
+    public CzynnikWartosciView(ObservableList<Czynnik> czynniki){
         this.czynniki = czynniki;
         
         this.getChildren().add(wartosciLabel);

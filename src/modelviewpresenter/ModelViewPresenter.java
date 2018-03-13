@@ -30,18 +30,36 @@ public class ModelViewPresenter extends Application {
        
        
        final MyData myData = new MyData();
-       
-       CzynnikView czynnikView = new CzynnikView(myData.getCzynniki());
-       CzynnikWynikView czynnikWynikView = new CzynnikWynikView(myData.getCzynnikWynik());
-       CzynnikWartosciView cwView = new CzynnikWartosciView(myData.getCzynniki());
-       
-       CzynnikPresenter czynnikPresenter = new CzynnikPresenter(myData.getCzynniki(),czynnikView,myData.getCzynnikWynik(),czynnikWynikView,cwView);
-       
-       
-      
-       
-        Group root = new Group();
-       
+       Group root = new Group();
+       //Group root = GUI(myData);//returns Group
+       //22 Group root = new Group(); GUI(root,myData);
+        GUI(myData, root);
+        
+        Scene scene = new Scene(root);       
+        
+        
+        
+        scene.getStylesheets().add("mystyle.css");
+        
+        
+        primaryStage.setTitle("Hello World!");
+        primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
+        primaryStage.show();
+    }
+
+    private void GUI(final MyData myData, Group root) {
+        CzynnikView czynnikView = new CzynnikView(myData.getCzynniki());
+        CzynnikWynikView czynnikWynikView = new CzynnikWynikView(myData.getCzynnikWynik());
+        CzynnikWartosciView cwView = new CzynnikWartosciView(myData.getCzynniki());
+        
+        CzynnikPresenter czynnikPresenter = new CzynnikPresenter(myData.getCzynniki(),czynnikView,myData.getCzynnikWynik(),czynnikWynikView,cwView);
+        
+        
+        
+        
+        
+        
         Button checkButton = new Button("CHECK");
         checkButton.setOnAction(e -> checkButtonClick(myData.getCzynniki().size()));
         
@@ -74,18 +92,6 @@ public class ModelViewPresenter extends Application {
         
         root.getChildren().add(tabPane);
         root.getStyleClass().add("root");
-        
-        Scene scene = new Scene(root);
-        
-        
-        
-        scene.getStylesheets().add("mystyle.css");
-        
-        
-        primaryStage.setTitle("Hello World!");
-        primaryStage.setScene(scene);
-        primaryStage.setResizable(false);
-        primaryStage.show();
     }
 
     /**

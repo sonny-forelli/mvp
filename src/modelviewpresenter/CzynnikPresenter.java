@@ -165,7 +165,7 @@ public class CzynnikPresenter {
         czynnikWynikowy.setOznaczenie(czynnikWynikView.oznaczenieTextField.getText());
         czynnikWynikowy.setJednostka(czynnikWynikView.jednostkaTextField.getText());
         
-        this.cwView.update(czynniki);
+       // this.cwView.update(czynniki);
     }
 
     private void wyczyscButtonClick() {
