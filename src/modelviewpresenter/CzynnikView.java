@@ -129,6 +129,8 @@ public class CzynnikView extends VBox{
         
         czynnikiTable.setPlaceholder(new Label("dsfdfsffadsfa"));
         
+        czynnikiTable.getStyleClass().add("table2");
+        
         this.getChildren().add(czynnikiTable);
         
     }

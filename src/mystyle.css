@@ -1,0 +1,35 @@
+.my-button {
+    -fx-text-fill: cyan;
+    
+    -fx-background-color: black;
+    -fx-border-color: cyan;
+    
+    -fx-font-family: "algerian";
+    
+    
+    
+}
+.my-button:hover{
+    -fx-background-color: pink;
+}
+.my-button:focused{
+    -fx-background-color: darkgreen;
+}
+
+.my-button:pressed{
+    -fx-background-color: greenyellow;
+}
+
+.root {
+    -fx-blend-mode: blue;
+    
+}
+
+.table1 {
+    -fx-background-color: purple;
+    -fx-border-color: red;
+}
+
+.table2 {
+    -fx-background-image: url(asd.png);
+}

@@ -13,6 +13,8 @@ import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -50,12 +52,42 @@ public class ModelViewPresenter extends Application {
         
         VBox myViews = new VBox();
         
+        
         myViews.getChildren().addAll(checkButton,czynnikView,czynnikWynikView,cwView);
-        root.getChildren().add(myViews);
+        
+        TabPane tabPane = new TabPane();
+        tabPane.getStyleClass().add("table1");
+        
+        Tab tab1 = new Tab("11111111");
+        tab1.setContent(myViews);
+        tab1.setClosable(false);
+        
+        Tab tab2 = new Tab("22222");
+        tab2.setClosable(false);
+        
+        tabPane.getTabs().addAll(tab1,tab2);
+        
+        
+        
+        //CSS
+        
+        checkButton.getStyleClass().add("my-button");
+        
+        /////
+        
+        root.getChildren().add(tabPane);
+        root.getStyleClass().add("root");
+        
         Scene scene = new Scene(root);
+        
+        
+        
+        scene.getStylesheets().add("mystyle.css");
+        
         
         primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
