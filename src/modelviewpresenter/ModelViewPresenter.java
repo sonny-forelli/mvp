@@ -29,16 +29,13 @@ public class ModelViewPresenter extends Application {
     public void start(Stage primaryStage) {
        
        
-       MyData myData = new MyData();
+       final MyData myData = new MyData();
        
        CzynnikView czynnikView = new CzynnikView(myData.getCzynniki());
+       CzynnikWynikView czynnikWynikView = new CzynnikWynikView(myData.getCzynnikWynik());
+       CzynnikWartosciView cwView = new CzynnikWartosciView(myData.getCzynniki());
        
-       CzynnikWynik czynnikWynik = new CzynnikWynik("dsaf","sdfadsf","sdfsd");
-       CzynnikWynikView czynnikWynikView = new CzynnikWynikView(czynnikWynik);
-       
-       CzynnikWartosciView cwView = new CzynnikWartosciView(myData.getCzynniki(),"mvp");
-       
-       CzynnikPresenter czynnikPresenter = new CzynnikPresenter(myData.getCzynniki(),czynnikView,czynnikWynik,czynnikWynikView,cwView);
+       CzynnikPresenter czynnikPresenter = new CzynnikPresenter(myData.getCzynniki(),czynnikView,myData.getCzynnikWynik(),czynnikWynikView,cwView);
        
        
       
