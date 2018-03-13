@@ -25,16 +25,21 @@ public class ModelViewPresenter extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-       ObservableList<Czynnik> czynniki = FXCollections.observableArrayList();      
+       ObservableList<Czynnik> czynniki = FXCollections.observableArrayList(); 
+       
+       
+       
        CzynnikView czynnikView = new CzynnikView(czynniki);
        
        CzynnikWynik czynnikWynik = new CzynnikWynik("dsaf","sdfadsf","sdfsd");
        CzynnikWynikView czynnikWynikView = new CzynnikWynikView(czynnikWynik);
        
-       CzynnikPresenter czynnikPresenter = new CzynnikPresenter(czynniki,czynnikView,czynnikWynik,czynnikWynikView);
+       CzynnikWartosciView cwView = new CzynnikWartosciView(czynniki,"mvp");
+       
+       CzynnikPresenter czynnikPresenter = new CzynnikPresenter(czynniki,czynnikView,czynnikWynik,czynnikWynikView,cwView);
        
        
-      CzynnikWartosciView cwView = new CzynnikWartosciView(czynniki);
+      
        
         Group root = new Group();
        
@@ -63,6 +68,7 @@ public class ModelViewPresenter extends Application {
 
     private void checkButtonClick(int size) {
         System.out.println(size);
+        
     }
     
 }

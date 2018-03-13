@@ -29,13 +29,17 @@ public class CzynnikPresenter {
     private final CzynnikWynik czynnikWynikowy;
     private final CzynnikWynikView czynnikWynikView;
     
+    private  CzynnikWartosciView cwView;
     
     
-    public CzynnikPresenter(ObservableList czynniki, CzynnikView czynnikView, CzynnikWynik czynnikWynik, CzynnikWynikView czynnikWynikView){
+    
+    public CzynnikPresenter(ObservableList czynniki, CzynnikView czynnikView, CzynnikWynik czynnikWynik, CzynnikWynikView czynnikWynikView,
+                                CzynnikWartosciView cwView){
         this.czynniki=czynniki;
         this.czynnikView=czynnikView;
         this.czynnikWynikowy = czynnikWynik;
         this.czynnikWynikView = czynnikWynikView;
+        this.cwView=cwView;
         
        attachEvents();
     }
@@ -160,6 +164,8 @@ public class CzynnikPresenter {
         czynnikWynikowy.setNazwa(czynnikWynikView.nazwaTextField.getText());
         czynnikWynikowy.setOznaczenie(czynnikWynikView.oznaczenieTextField.getText());
         czynnikWynikowy.setJednostka(czynnikWynikView.jednostkaTextField.getText());
+        
+        this.cwView.update(czynniki);
     }
 
     private void wyczyscButtonClick() {

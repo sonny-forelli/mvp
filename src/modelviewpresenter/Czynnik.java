@@ -147,5 +147,20 @@ public class Czynnik {
                ", wartosc maksymalna: " + wartoscMax.get() +
                ", jednostka: " + jednostka.get() + ")";
     }
+
+    double getWartoscCentralna() {
+        String wartoscCentralna;
+        double wC=(this.wartoscMax.get()+this.wartoscMin.get())/2;
+        wartoscCentralna=Double.toString(wC);
+        
+        return wC;
+    }
+
+    String getJednostkaZmiennosci() {
+        String jednostkaZmiennosci;
+        double jZ=(this.wartoscMax.get()-this.wartoscMin.get())/2;
+        jednostkaZmiennosci=Double.toString(jZ);
+        return jednostkaZmiennosci;
+    }
     
 }

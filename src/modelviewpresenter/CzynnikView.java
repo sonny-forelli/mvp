@@ -121,6 +121,7 @@ public class CzynnikView extends VBox{
         TableView czynnikiTable = new TableView(dane);
         czynnikiTable.getColumns().addAll(CzynnikTableUtil.getIdColumn(),
                                           CzynnikTableUtil.getNazwaColumn(),
+                                          CzynnikTableUtil.getOznaczenieColumn(),
                                           CzynnikTableUtil.getWartoscColumn(),
                                           CzynnikTableUtil.getJednostkaColumn());
         

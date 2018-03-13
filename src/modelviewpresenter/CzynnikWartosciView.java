@@ -23,21 +23,31 @@ public class CzynnikWartosciView extends VBox{
     private final Label wartosciLabel = new Label("wartości centralne i poziomy");
     
     
-    public CzynnikWartosciView(ObservableList<Czynnik> czynniki){
+    public CzynnikWartosciView(ObservableList<Czynnik> czynniki,String label){
         this.czynniki = czynniki;
         
+        this.getChildren().add(wartosciLabel);
         loadTable();
+        
         
     }
 
     private void loadTable() {
+        /*
         TableView wartosciTable = new TableView(CzynnikWartosciTableUtil.wiersze);
         TableColumn tc = new TableColumn("gggf");
         tc.setCellValueFactory((Callback) CzynnikWartosciTableUtil.wiersze);
         wartosciTable.getColumns().add(tc);
         
         this.getChildren().add(wartosciTable);
+        */
+        CzynnikWartosciTableUtil cwtu = new CzynnikWartosciTableUtil();
+        this.getChildren().add(cwtu.getTable(czynniki));
         
+    }
+
+    void update(ObservableList<Czynnik> czynniki) {
+        loadTable();
     }
     
     
