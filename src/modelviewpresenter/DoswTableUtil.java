@@ -31,7 +31,8 @@ public class DoswTableUtil {
         // CELL FACTORY ; EDITABLE TEXT FIELD
         TableColumn<Dosw, String> tc = new TableColumn<>();
 
-        tc.setText("pomiar " + Integer.toString(id));
+        tc.setText("pomiar " + Integer.toString(id+1));
+      //  tc.setEditable(true);
 
         tc.setCellValueFactory((TableColumn.CellDataFeatures<Dosw, String> param) -> param.getValue().getPomiar(id));
 

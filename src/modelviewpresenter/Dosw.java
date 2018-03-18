@@ -24,9 +24,7 @@ public class Dosw {
             sredniaY=new SimpleDoubleProperty(4);
             lnSredniaY=new SimpleDoubleProperty(3);
             
-            for(int j=0;j<i;j++){
-             //  yyy.add(0.0);
-            }
+            addPomiar(i);
             
         }
         

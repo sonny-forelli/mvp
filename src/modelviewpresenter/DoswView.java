@@ -3,6 +3,7 @@ package modelviewpresenter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -20,17 +21,23 @@ public class DoswView extends VBox {
     private final DoswTableUtil dtu;
 
     public DoswView(ObservableList<Dosw> doswiadczenia) {
+        
+        
 
         this.doswiadczenia = doswiadczenia;
         this.dtu = new DoswTableUtil();
+         this.getChildren().add(liczbaPowtorzenCB);
         createTables();
-
-        this.getChildren().add(liczbaPowtorzenCB);
+       
+        
 
     }
 
     private void createTables() {
         doswTable = new TableView(doswiadczenia);
+        doswTable.setEditable(true);
+        doswTable.setPlaceholder(new Label("dfskjdfkjskljs"));
+        
         TableView wariancjeTable = new TableView(doswiadczenia);
         //                create wariancjeTable
 

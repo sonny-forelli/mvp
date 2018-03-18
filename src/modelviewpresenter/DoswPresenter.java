@@ -109,6 +109,10 @@ public final class DoswPresenter {
         
         doswiadczenia.clear();
         
+        for(int i = 0; i< Math.pow(2, liczbaCzynnikow.get());i++){
+            doswiadczenia.add(new Dosw(liczbaPowtorzen));
+        }
+        
         
         doswView.update();
         
