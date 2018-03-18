@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -56,6 +57,18 @@ public class ModelViewPresenter extends Application {
         CzynnikPresenter czynnikPresenter = new CzynnikPresenter(myData.getCzynniki(),czynnikView,myData.getCzynnikWynik(),czynnikWynikView,cwView);
         
         
+        //////////////////////
+        
+        PlanView planView = new PlanView(myData.getPlany(),myData.getLiczbaCzynnikow());
+        DoswView doswView = new DoswView(myData.getDoswiadczenia());
+        
+        DoswPresenter doswPresenter = new DoswPresenter(myData.getPlany(),planView,myData.getDoswiadczenia(),doswView,myData.getLiczbaCzynnikow());
+        
+        
+        HBox tab3views = new HBox(planView,doswView);
+        
+        //////////////////////
+        
         
         
         
@@ -80,7 +93,15 @@ public class ModelViewPresenter extends Application {
         Tab tab2 = new Tab("22222");
         tab2.setClosable(false);
         
-        tabPane.getTabs().addAll(tab1,tab2);
+        Tab tab3 = new Tab("333");
+        
+        tab3.setOnSelectionChanged(e -> doswPresenter.update());
+        
+        tab3.setContent(tab3views);
+        tab3.setClosable(false);
+        
+        tabPane.getTabs().addAll(tab1,tab2,tab3);
+        
         
         
         

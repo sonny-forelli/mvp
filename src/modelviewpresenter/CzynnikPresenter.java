@@ -65,6 +65,9 @@ public class CzynnikPresenter {
                         Float.parseFloat(czynnikView.addWmax.getText()),
                         czynnikView.addJedn.getText()));
                     
+                    
+                    
+                    
                     czynnikView.addNazwa.clear();
                     czynnikView.addOzn.clear();
                     czynnikView.addWmin.clear();
