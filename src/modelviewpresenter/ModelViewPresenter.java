@@ -76,6 +76,18 @@ public class ModelViewPresenter extends Application {
         
         
         
+        ObliczeniaView obliczeniaView = new  ObliczeniaView(myData.getKody(),myData.getWspolczynnikiRegr(),myData.getCzynniki());
+        ObliczeniaP obliczeniaP = new ObliczeniaP(obliczeniaView,myData.getCzynniki(),
+                                                myData.getKody(),myData.getWspolczynnikiRegr(),
+                                                myData.getPlany(),myData.getDoswiadczenia());
+        
+        VBox tab4content = new VBox(obliczeniaView);
+        
+        
+        //////////////////
+        
+        
+        
         
         
         Button checkButton = new Button("CHECK");
@@ -105,9 +117,16 @@ public class ModelViewPresenter extends Application {
         tab3.setContent(tab3views);
         tab3.setClosable(false);
         
-        tabPane.getTabs().addAll(tab1,tab2,tab3);
+        Tab tab4 =new Tab("OBliczenia");
+        tab4.setContent(tab4content);
+        tab4.setClosable(false);
+        
+        
+        
+        tabPane.getTabs().addAll(tab1,tab2,tab3,tab4);
         
         tab3.setOnSelectionChanged(e-> doswView.refresh());
+        tab4.setOnSelectionChanged(e -> obliczeniaP.update());
         
         
         //CSS

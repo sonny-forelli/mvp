@@ -24,12 +24,18 @@ public class MyData {
     private final ObservableList<Plan> plany;
     private final ObservableList<Dosw> doswiadczenia;
     
+    private final ObservableList<CzynnikKod> kody;
+    private final ObservableList<WspRegr> wspolczynnikiRegr;
+    
     
     public MyData(){
         this.czynniki = FXCollections.observableArrayList();
         this.czynnikWynik = new CzynnikWynik("dsaf","sdfadsf","sdfsd");
         this.plany = FXCollections.observableArrayList();
         this.doswiadczenia = FXCollections.observableArrayList();
+        
+        this.kody=FXCollections.observableArrayList();
+        this.wspolczynnikiRegr=FXCollections.observableArrayList();
         
         liczbaCzynnikow = Bindings.size(czynniki);
         
@@ -62,6 +68,20 @@ public class MyData {
      */
     public IntegerBinding getLiczbaCzynnikow() {
         return liczbaCzynnikow;
+    }
+
+    /**
+     * @return the kody
+     */
+    public ObservableList<CzynnikKod> getKody() {
+        return kody;
+    }
+
+    /**
+     * @return the wspolczynnikiRegr
+     */
+    public ObservableList<WspRegr> getWspolczynnikiRegr() {
+        return wspolczynnikiRegr;
     }
     
     
