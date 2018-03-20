@@ -21,7 +21,7 @@
 }
 
 .root {
-    -fx-blend-mode: blue;
+    
     
 }
 
@@ -32,4 +32,11 @@
 
 .table2 {
     -fx-background-image: url(asd.png);
+}
+
+.tab1-header {
+    -fx-text-fill: yellow;
+    -fx-font-size: 24;
+    -fx-alignment: center;
+    -fx-font-family: "Lucida Console";
 }

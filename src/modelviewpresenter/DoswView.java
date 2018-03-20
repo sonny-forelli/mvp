@@ -17,8 +17,12 @@ public class DoswView extends VBox {
     );
 
     private TableView<Dosw> doswTable;
+    private TableView<Dosw> wariancjeTable;
+    
+    
 
     private final DoswTableUtil dtu;
+    
 
     public DoswView(ObservableList<Dosw> doswiadczenia) {
         
@@ -38,8 +42,8 @@ public class DoswView extends VBox {
         doswTable.setEditable(true);
         doswTable.setPlaceholder(new Label("dfskjdfkjskljs"));
         
-        TableView wariancjeTable = new TableView(doswiadczenia);
-        //                create wariancjeTable
+        wariancjeTable = new TableView(doswiadczenia);
+        wariancjeTable.getColumns().addAll(dtu.getWarColumns());
 
         
 
@@ -60,9 +64,17 @@ public class DoswView extends VBox {
         }
 
     }
+    
+    public void updateWarTable(){
+        
+    }
 
     void update() {
         
+    }
+    void refresh(){
+        this.wariancjeTable.refresh();
+        this.doswTable.refresh();
     }
 }
 	

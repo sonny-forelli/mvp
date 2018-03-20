@@ -17,6 +17,7 @@ public final class DoswPresenter {
     private final DoswView doswView;
     private final IntegerBinding liczbaCzynnikow;
     private int liczbaPowtorzen=0;
+    private MasterP mp;
 
 //    private final ObservableList<Czynnik> czynniki;
 
@@ -46,6 +47,9 @@ public final class DoswPresenter {
             lpcbUpdate(oldValue.intValue(), newValue.intValue());
             //   doswView.updateDoswTable
         });
+        
+        planView.hideColButton.setOnAction(e -> planView.showColumns());
+        
     }
 
     void lpcbUpdate(int oldV, int newV) {
@@ -90,7 +94,7 @@ public final class DoswPresenter {
 
     private void variation(ArrayList<Character> input, int depth, ArrayList<Character> output) {
         if (depth == 0) {
-            System.out.println(output);
+            
             plany.add(new Plan(output));
 
         } else {
@@ -103,20 +107,29 @@ public final class DoswPresenter {
     }
 
     void update() {
-        System.out.print(plany);
+        
         setPlany();
         planView.update();
+        setDosw();
         
-        doswiadczenia.clear();
-        
-        for(int i = 0; i< Math.pow(2, liczbaCzynnikow.get());i++){
-            doswiadczenia.add(new Dosw(liczbaPowtorzen));
-        }
         
         
         doswView.update();
         
         
+    }
+
+    private void setDosw() {
+        doswiadczenia.clear();
+        
+        for(int i = 0; i< Math.pow(2, liczbaCzynnikow.get());i++){
+            doswiadczenia.add(new Dosw(liczbaPowtorzen));
+        }
+    }
+
+    void setMP(MasterP mp) {
+        
+        this.mp=mp;
     }
 
     

@@ -65,6 +65,11 @@ public class ModelViewPresenter extends Application {
         DoswPresenter doswPresenter = new DoswPresenter(myData.getPlany(),planView,myData.getDoswiadczenia(),doswView,myData.getLiczbaCzynnikow());
         
         
+        MasterP mp = new MasterP(czynnikPresenter,doswPresenter);
+        
+        czynnikPresenter.setMP(mp);
+        doswPresenter.setMP(mp);
+        
         HBox tab3views = new HBox(planView,doswView);
         
         //////////////////////
@@ -74,7 +79,7 @@ public class ModelViewPresenter extends Application {
         
         
         Button checkButton = new Button("CHECK");
-        checkButton.setOnAction(e -> checkButtonClick(myData.getCzynniki().size()));
+        checkButton.setOnAction(e -> checkButtonClick(myData.getCzynniki().size(),myData.getDoswiadczenia()));
         
         checkButton.setDisable(false);
         
@@ -95,14 +100,14 @@ public class ModelViewPresenter extends Application {
         
         Tab tab3 = new Tab("333");
         
-        tab3.setOnSelectionChanged(e -> doswPresenter.update());
+        
         
         tab3.setContent(tab3views);
         tab3.setClosable(false);
         
         tabPane.getTabs().addAll(tab1,tab2,tab3);
         
-        
+        tab3.setOnSelectionChanged(e-> doswView.refresh());
         
         
         //CSS
@@ -122,8 +127,10 @@ public class ModelViewPresenter extends Application {
         launch(args);
     }
 
-    private void checkButtonClick(int size) {
+    private void checkButtonClick(int size, ObservableList<Dosw> doswiadczenia) {
         System.out.println(size);
+        System.out.print(doswiadczenia);
+       
         
     }
     

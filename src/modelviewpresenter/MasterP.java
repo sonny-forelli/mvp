@@ -10,5 +10,22 @@ package modelviewpresenter;
  * @author lg
  */
 public class MasterP {
-  //  dfsdfs
+//    
+//    BES SĘSU
+//    
+//  
+    private final CzynnikPresenter cp;
+    private final DoswPresenter dp;
+    
+     MasterP(CzynnikPresenter cp, DoswPresenter dp){
+        
+        this.cp=cp;
+        this.dp=dp;
+        
+    }
+    
+    void lcChange(){
+        dp.update();
+    }
+    
 }

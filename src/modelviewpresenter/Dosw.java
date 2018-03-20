@@ -21,8 +21,8 @@ public class Dosw {
          
         Dosw(int i) {
             yyy=new ArrayList();
-            sredniaY=new SimpleDoubleProperty(4);
-            lnSredniaY=new SimpleDoubleProperty(3);
+            sredniaY=new SimpleDoubleProperty(0);
+            lnSredniaY=new SimpleDoubleProperty(0);
             
             addPomiar(i);
             
@@ -31,6 +31,8 @@ public class Dosw {
         void setPomiar(int id, String pomiar){
             
            yyy.set(id, Double.parseDouble(pomiar));
+           srednie();
+         
             
         }
         
@@ -48,11 +50,13 @@ public class Dosw {
             for(int i=0;i<addInt;i++){
                 yyy.add(0.0);
             }
+        
         }
         void deletePomiar(int delInt){
             for(int i=0;i<delInt;i++){
                 yyy.remove(yyy.size()-1);
             }
+         
         }
 
         ObservableValue<String> getPomiar(int k) {
@@ -60,6 +64,7 @@ public class Dosw {
         }
 
         private void srednie() {
+            System.out.println("SREDNIE()");
             double sumaY=0;
             int liczbaY=0;
             double srednia;

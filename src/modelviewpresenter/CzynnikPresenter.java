@@ -30,6 +30,7 @@ public class CzynnikPresenter {
     private final CzynnikWynikView czynnikWynikView;
     
     private  CzynnikWartosciView cwView;
+    private MasterP mp;
     
     
     
@@ -67,12 +68,15 @@ public class CzynnikPresenter {
                     
                     
                     
+                    this.mp.lcChange();
+                    
                     
                     czynnikView.addNazwa.clear();
                     czynnikView.addOzn.clear();
                     czynnikView.addWmin.clear();
                     czynnikView.addWmax.clear();
                     czynnikView.addJedn.clear();
+                    
                     
                     
                     
@@ -175,6 +179,10 @@ public class CzynnikPresenter {
         czynnikWynikView.nazwaTextField.clear();
         czynnikWynikView.oznaczenieTextField.clear();
         czynnikWynikView.jednostkaTextField.clear();
+    }
+
+    void setMP(MasterP mp) {
+        this.mp=mp;
     }
 
     

@@ -61,6 +61,8 @@ public class CzynnikWartosciTableUtil {
         
         rowNames.setPrefHeight(252);
         
+        
+        
         //  System.out.print(rowNames.getStyle());
         
         

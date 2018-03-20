@@ -17,6 +17,7 @@ class MatrycaPlanowUtil {
         List<TableColumn<Plan, String>> columns = new ArrayList();
 
         TableColumn lpCol = new TableColumn("lp");
+        
         columns.add(lpCol);
         for (int i = 0; i <= liczbaCzynnikow; i++) {
             int k = i;

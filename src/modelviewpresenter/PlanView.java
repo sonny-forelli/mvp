@@ -3,6 +3,7 @@ package modelviewpresenter;
 import javafx.beans.binding.IntegerBinding;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.VBox;
@@ -24,6 +25,10 @@ public class PlanView extends VBox {
 	private final TableView<Plan> matrycaPlanow;
         
         private final IntegerBinding liczbaCzynnikow;
+        
+        final Button hideColButton = new Button("zwiń");
+        
+        private boolean colVis = true;
 	
 	public PlanView(ObservableList plany, IntegerBinding liczbaCzynnikow) {
 		
@@ -31,10 +36,13 @@ public class PlanView extends VBox {
 		this.liczbaCzynnikow=liczbaCzynnikow;
                 
                 matrycaPlanow = new TableView(this.plany);
+                
 		setMatrycaPlanow();
 		
-		this.getChildren().add(planyLabel);
+		
+                this.getChildren().add(hideColButton);
 		this.getChildren().add(matrycaPlanow);
+                this.getChildren().add(planyLabel);
 		
 	}
 	
@@ -55,8 +63,40 @@ public class PlanView extends VBox {
 		 matrycaPlanow.getColumns().clear();
 		 
 		matrycaPlanow.getColumns().addAll(mpu.getColumnsList());
+//                matrycaPlanow.autosize();
 		
         }
+        
+        void showColumns(){
+            
+            if(colVis){
+                
+                colVis=false;
+                hideColButton.setText("rozwiń");
+                matrycaPlanow.setMaxWidth(35);
+                
+                
+                
+            }
+            
+            
+            else{
+                colVis=true;
+                
+                hideColButton.setText("zwiń");
+                matrycaPlanow.setMaxWidth(500);
+                
+                
+                
+                
+            }
+            for(int i=1;i<matrycaPlanow.getColumns().size();i++){
+                matrycaPlanow.getColumns().get(i).setVisible(colVis);
+            }
+            
+            
+        }
+        
 		
 	}
 	/*

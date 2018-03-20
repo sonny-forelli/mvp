@@ -29,6 +29,8 @@ public class CzynnikWartosciView extends VBox{
         this.getChildren().add(wartosciLabel);
         loadTable();
         
+        setStyles();
+        
         
     }
 
@@ -48,6 +50,12 @@ public class CzynnikWartosciView extends VBox{
 
     void update(ObservableList<Czynnik> czynniki) {
         loadTable();
+    }
+
+    private void setStyles() {
+        
+        wartosciLabel.getStyleClass().add("tab1-header");
+
     }
     
     
